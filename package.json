@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Guillerbr/api-rest-node-mongo/issues"
   },
-  "homepage": "https://github.com/Guillerbr/api-rest-node-mongo#readme"
+  "homepage": "https://github.com/Guillerbr/api-rest-node-mongo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
