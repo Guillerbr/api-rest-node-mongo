@@ -1,0 +1,20 @@
+{
+  "name": "api-rest-node-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guillerbr/api-rest-node-mongo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guillerbr/api-rest-node-mongo/issues"
+  },
+  "homepage": "https://github.com/Guillerbr/api-rest-node-mongo#readme"
+}
