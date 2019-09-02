@@ -1,11 +1,18 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
-const jwt = require ('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
-
-
 const authConfig = require('../config/auth.json');
+
+
+function generateToken(params = {}) {
+
+    return jwt.sign(params, authConfig.secret,
+        {
+            expiresIn: 86400,
+        });
+}
 
 
 router.post('/register', async (req, res) => {
@@ -20,7 +27,10 @@ router.post('/register', async (req, res) => {
 
         user.password = undefined;
 
-        return res.send({ user });
+        return res.send({
+            user,
+            token: generateToken({ id: user.id }),
+        });
     } catch (err) {
         return res.status(400).send({ error: 'Registration failed' });
     }
@@ -36,17 +46,20 @@ router.post('/authuser', async (req, res) => {
     if (!user)
         return res.status(400)
             .send({ error: 'User not found' });
-            if (!await bcrypt.compare(password, user.password)) 
-            return res.status(400).send({ error: 'Invalid password' });
+    if (!await bcrypt.compare(password, user.password))
+        return res.status(400).send({ error: 'Invalid password' });
 
-            user.password = undefined;
+    user.password = undefined;
 
-            const token = jwt.sign({ id: user.id}, authConfig.secret,{
- 
-                   expiresIn: 86400,  //one day
-            });
+    const token = jwt.sign({ id: user.id }, authConfig.secret, {
 
-            res.send({ user, token });
+        expiresIn: 86400,  //one day expires
+    });
+
+    res.send({
+        user,
+        token: generateToken({ id: user.id }),
+    });
 
 
 });
