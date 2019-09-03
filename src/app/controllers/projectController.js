@@ -17,11 +17,16 @@ router.get('/:projectId', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    res.send({ ok: true, user: req.userId });
+    res.send({ user: req.userId });
 
 });
 
 router.put('/:projectId', async (req, res) => {
+    res.send({ user: req.userId });
+
+});
+
+router.delete('/:projectId', async (req, res) => {
     res.send({ user: req.userId });
 
 });
