@@ -14,24 +14,32 @@ router.get('/', async (req, res) => {
         return res.send({ projects });
 
     } catch (err) {
-        return res.status(400).send({ error: 'Error loading projects' });
+        return res.status(400).send({ error: 'Error loading projects!' });
 
     }
 });
 
 router.get('/:projectId', async (req, res) => {
-    res.send({ user: req.userId });
+    try {
+        const project = await Project.findById(req.params.projectId).populate('user');
+
+        return res.send({ project });
+
+    } catch (err) {
+        return res.status(400).send({ error: 'Error loading project!' });
+
+    }
 
 });
 
 router.post('/', async (req, res) => {
     try {
-        const project = await Project.create({  ...req.body, user: req.userId });
+        const project = await Project.create({ ...req.body, user: req.userId });
 
         return res.send({ project });
 
     } catch (err) {
-        return res.status(400).send({ error: 'Error creating new project' });
+        return res.status(400).send({ error: 'Error creating new project!' });
 
     }
 
@@ -43,7 +51,15 @@ router.put('/:projectId', async (req, res) => {
 });
 
 router.delete('/:projectId', async (req, res) => {
-    res.send({ user: req.userId });
+    try {
+         await Project.findByIdAndRemove(req.params.projectId);
+
+        return res.send();
+
+    } catch (err) {
+        return res.status(400).send({ error: 'Error Deleting project!' });
+
+    }
 
 });
 
