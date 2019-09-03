@@ -94,7 +94,8 @@ router.post('/forgot_password', async (req, res) => {
             if (err)
                 
                 return res.status(400).send({ error: 'Cannot send forgot password email!' });
-            return res.send();
+                res.send({ ok: true, user: req.userId });     //ok return user id
+
 
         })
     } catch (err) {
@@ -128,7 +129,8 @@ router.post('/reset_password', async (req, res) => {
 
         await user.save();
 
-        res.send();
+       
+        res.send({ ok: true, user: req.userId });     //ok return user id
 
 
     } catch (err) {
