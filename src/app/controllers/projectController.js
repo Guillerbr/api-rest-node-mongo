@@ -34,7 +34,17 @@ router.get('/:projectId', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const project = await Project.create({ ...req.body, user: req.userId });
+        const { title, description, tasks } = req.body;
+
+        const project = await Project.create({ title, description, user: req.userId });
+
+        tasks.map(task => {
+
+            const projectTask = new Task({ ...task, project: project._id });
+            projectTask.save().then(task => project.tasks.push(task));
+
+
+        });
 
         return res.send({ project });
 
@@ -52,7 +62,7 @@ router.put('/:projectId', async (req, res) => {
 
 router.delete('/:projectId', async (req, res) => {
     try {
-         await Project.findByIdAndRemove(req.params.projectId);
+        await Project.findByIdAndRemove(req.params.projectId);
 
         return res.send();
 
