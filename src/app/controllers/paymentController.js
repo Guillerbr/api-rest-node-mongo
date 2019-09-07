@@ -2,7 +2,7 @@ const express = require('express');
 const authMiddleware = require('../middlewares/auth');
 const router = express.Router()
 
-const Project = require('../models/project');
+const authConfig = require('../../config/auth');
 
 router.use(authMiddleware);
 
@@ -17,3 +17,6 @@ router.get('/payments', async (req, res) => {
 
     }
 });
+
+
+module.exports = app => app.use('/auth', router);
