@@ -3,11 +3,6 @@ const bcrypt = require('bcryptjs');
 
 const PaymentSchema = new mongoose.Schema({
 
-    name: {
-        type: String,
-        require: true,
-    },
-
     name_card: {
         type: String,
         unique: true,
