@@ -13,29 +13,24 @@ const PaymentSchema = new mongoose.Schema({
         required: true,
         lowercase: true
     },
-    Number_card: {
+    number_card: {
         type: Number,
         require: true
-       // select: false,
+        // select: false,
     },
-    Data_card: {
+    date_card: {
         type: Number,
         unique: true,
         required: true
-       // select: false,
+        // select: false,
 
     },
-    Cvv_card:  {
+    cvv_card: {
         type: Number,
         unique: true,
         required: true
         //select: false,
 
-    },
-    completed: {
-        type: Boolean,
-        require: true,
-        default: false
     },
     createdAt: {
         type: Date,
@@ -44,7 +39,9 @@ const PaymentSchema = new mongoose.Schema({
 
 });
 
-UserSchema.pre('save', async function(next) {
+
+/*
+UserSchema.pre('save', async function (next) {
 
     const hash = await bcrypt.hash(this.password, 10);
     this.password = hash;
@@ -52,6 +49,8 @@ UserSchema.pre('save', async function(next) {
     next();
 
 });
+
+*/
 
 const Payment = mongoose.model('Payment', PaymentSchema);
 
