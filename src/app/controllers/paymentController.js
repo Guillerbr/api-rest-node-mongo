@@ -11,12 +11,15 @@ router.use(authMiddleware);
 
 router.post('/payments', async (req, res) => {
     try {
-        const Payment = await Payment.find().populate(['user', 'name_card','date_card']);
+        const { name_card, number_card, date_card, cvv_card } = req.body;
+
+        const Payment = await Payment.find().populate(['user', 'name_card', 'date_card']);
 
         return res.send({ projects });
 
     } catch (err) {
-        return res.status(400).send({ error: 'Error loading projects!' });
+        return res.status(400).send({
+            error: 'Error making payment!' });
 
     }
 });
