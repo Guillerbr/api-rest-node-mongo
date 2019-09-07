@@ -11,22 +11,31 @@ const PaymentSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        lowercase: true,
+        lowercase: true
     },
     Number_card: {
-        type: String,
-        require: true,
-        select: false,
+        type: Number,
+        require: true
+       // select: false,
     },
     Data_card: {
-        type: String,
-        select: false,
+        type: Number,
+        unique: true,
+        required: true
+       // select: false,
 
     },
-    passwordResetExpires:  {
-        type: Date,
-        select: false,
+    Cvv_card:  {
+        type: Number,
+        unique: true,
+        required: true
+        //select: false,
 
+    },
+    completed: {
+        type: Boolean,
+        require: true,
+        default: false
     },
     createdAt: {
         type: Date,
