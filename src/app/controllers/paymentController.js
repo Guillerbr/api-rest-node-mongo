@@ -1,25 +1,20 @@
 const express = require('express');
 const authMiddleware = require('../middlewares/auth');
-const router = express.Router()
+const router = express.Router();
 
-const User = require('../models/User');
-const Payment = require('../models/Payment');
-
-const authConfig = require('../../config/auth');
+const Payment = require('../models/payment');
 
 router.use(authMiddleware);
 
 router.post('/payments', async (req, res) => {
-    const { name_card, number_card, date_card, cvv_card, } = req.body;
+    
 
     try {
-       // const { name_card, number_card, date_card, cvv_card, } = req.body;
+        const { name_card, number_card, date_card, cvv_card } = req.body;
+           const payment = await Payment.create({ name_card, number_card, date_card, cvv_card,  });
+           await payment.save();
 
-        const payment = await Payment.create({ name_card, number_card, date_card, cvv_card, user: req.userId });
-
-        await project.save();
-
-        return res.send({ payment });
+           return res.send({ payment });
 
 
     } catch (err) {

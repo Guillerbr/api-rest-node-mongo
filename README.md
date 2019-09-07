@@ -5,5 +5,5 @@ See package.json file
 
 #See package.json file
 
-use Mailtrap for tests server smtp and email serve.
+Use Mailtrap for tests server smtp and email.
    
