@@ -13,10 +13,14 @@ router.post('/payments', async (req, res) => {
     try {
         const { name_card, number_card, date_card, cvv_card } = req.body;
 
-        const Payment = await Payment.find().populate(['user', 'name_card', 'date_card']);
+        const Payment = await Payment.create({ name_card, number_card, date_card, cvv_card, user: req.userId });
 
-        return res.send({ projects });
+        await payment.save();
 
+        return res.send({ payment });
+  
+
+        
     } catch (err) {
         return res.status(400).send({
             error: 'Error making payment!' });
