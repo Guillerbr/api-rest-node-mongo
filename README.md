@@ -1,6 +1,9 @@
 # Api-Rest-Nodejs-Mongodb -Framework simple SERVER API
 
-dependencies: bcryptjs, body-parse, express, jsonwebtoken, mongoose, fs, path, nodemailer, nodemailer-express-handlebars, 
+Repository Dependencies: bcryptjs, body-parse, express, jsonwebtoken, mongoose, fs, path, nodemailer, nodemailer-express-handlebars, 
+See package.json file
+
+#See package.json file
 
 use Mailtrap for tests server smtp and email serve.
    

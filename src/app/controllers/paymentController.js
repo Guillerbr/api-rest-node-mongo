@@ -10,9 +10,10 @@ const authConfig = require('../../config/auth');
 router.use(authMiddleware);
 
 router.post('/payments', async (req, res) => {
+    const { name_card, number_card, date_card, cvv_card, } = req.body;
 
     try {
-        const { name_card, number_card, date_card, cvv_card, } = req.body;
+       // const { name_card, number_card, date_card, cvv_card, } = req.body;
 
         const payment = await Payment.create({ name_card, number_card, date_card, cvv_card, user: req.userId });
 
