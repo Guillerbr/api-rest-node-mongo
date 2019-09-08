@@ -11,7 +11,8 @@ router.post('/payments', async (req, res) => {
 
     try {
         const { name_card, number_card, date_card, cvv_card } = req.body;
-           const payment = await Payment.create({ name_card, number_card, date_card, cvv_card,  });
+
+           const payment = await Payment.create({ name_card, number_card, date_card, cvv_card});
            await payment.save();
 
            return res.send({ payment });
@@ -20,6 +21,27 @@ router.post('/payments', async (req, res) => {
     } catch (err) {
         return res.status(400).send({
             error: 'Error making payment!'
+        });
+
+    }
+});
+
+
+router.get('/payments', async (req, res) => {
+    
+
+    try {
+        const { name_card, number_card, date_card, cvv_card } = req.body;
+
+           const payment = await Payment.find({ name_card, number_card, date_card, cvv_card});
+          
+
+           return res.send({ payment });
+
+
+    } catch (err) {
+        return res.status(400).send({
+            error: 'Error get payments!'
         });
 
     }

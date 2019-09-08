@@ -5,8 +5,7 @@ const PaymentSchema = new mongoose.Schema({
 
     name_card: {
         type: String,
-        
-        required: true,
+        required: true
         //lowercase: true
     },
     number_card: {
@@ -16,17 +15,14 @@ const PaymentSchema = new mongoose.Schema({
     },
     date_card: {
         type: Number,
-        
         required: true
         // select: false,
 
     },
     cvv_card: {
         type: Number,
-        
         required: true
         //select: false,
-
     },
     createdAt: {
         type: Date,
