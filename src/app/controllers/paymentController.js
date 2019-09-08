@@ -6,16 +6,18 @@ const Payment = require('../models/payment');
 
 router.use(authMiddleware);
 
+
+
 router.post('/payments', async (req, res) => {
-    
+
 
     try {
         const { name_card, number_card, date_card, cvv_card } = req.body;
 
-           const payment = await Payment.create({ name_card, number_card, date_card, cvv_card});
-           await payment.save();
+        const payment = await Payment.create({ name_card, number_card, date_card, cvv_card });
+        await payment.save();
 
-           return res.send({ payment });
+        return res.send({ payment });
 
 
     } catch (err) {
@@ -28,15 +30,10 @@ router.post('/payments', async (req, res) => {
 
 
 router.get('/payments', async (req, res) => {
-    
 
     try {
-        const { name_card, number_card, date_card, cvv_card } = req.body;
-
-           const payment = await Payment.find({ name_card, number_card, date_card, cvv_card});
-          
-
-           return res.send({ payment });
+        const payment = await Payment.find().populate(['payment']);
+        return res.send({ payment });
 
 
     } catch (err) {
@@ -46,6 +43,8 @@ router.get('/payments', async (req, res) => {
 
     }
 });
+
+
 
 
 module.exports = app => app.use('/auth', router);
