@@ -14,13 +14,13 @@ const ProjectSchema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,     //referencia user id, comando moogoose para chave primaria
-        ref: 'User',
+        ref: 'User',                             //relacionamento de tabelas
         require: true,
 
     },
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,   //referencia user id, comando moogoose para chave primaria
-        ref: 'Task',
+        ref: 'Task',                            //relacionamento de tabelas
     }],
 
     createdAt: {

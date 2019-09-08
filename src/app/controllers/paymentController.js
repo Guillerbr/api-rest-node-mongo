@@ -44,7 +44,41 @@ router.get('/payments', async (req, res) => {
     }
 });
 
+router.get('/:paymentsId', async (req, res) => {
 
+    try {
+         const payment = await Payment.findById(req.params.paymentsId).populate('user');
+         return res.send({ payment });
+    
+        }catch (err){
+
+            return res.status(400).send({ error: 'Error loading payment' });
+    }
+
+});
+
+
+/*
+router.delete()('/:paymentsId', async (req, res) => {
+
+    try {
+        await Payment.findByIdAndRemove(req.params.paymenttId);
+        return res.send();
+
+    } catch (err) {
+        return res.status(400).send({
+            error: 'Error Deleting Payment!'
+        });
+
+    }
+});
+
+
+
+
+
+
+*/
 
 
 module.exports = app => app.use('/auth', router);
