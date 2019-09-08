@@ -7,3 +7,8 @@ See package.json file
 
 Use Mailtrap for tests server smtp and email.
    
+Start
+node src/index
+
+or Nodemon module
+nodemon src/index

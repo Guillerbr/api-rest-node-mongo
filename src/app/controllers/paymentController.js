@@ -44,10 +44,10 @@ router.get('/payments', async (req, res) => {
     }
 });
 
-router.get('/:paymentsId', async (req, res) => {
+router.get('/:paymentId', async (req, res) => {
 
     try {
-         const payment = await Payment.findById(req.params.paymentsId).populate('user');
+         const payment = await Payment.findById(req.params.paymentId).populate('user');
          return res.send({ payment });
     
         }catch (err){
