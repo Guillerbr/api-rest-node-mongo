@@ -32,7 +32,7 @@ router.post('/payments', async (req, res) => {
 router.get('/payments', async (req, res) => {
 
     try {
-        const payment = await Payment.find().populate(['payment']);
+        const payment = await Payment.find().populate(['user', 'payment']);
         return res.send({ payment });
 
 
@@ -53,6 +53,39 @@ router.get('/:paymentId', async (req, res) => {
         }catch (err){
 
             return res.status(400).send({ error: 'Error loading payment' });
+    }
+
+});
+
+router.put('/:paymentId', async (req, res) => {
+    try {
+        const { name_card, number_card, date_card, cvv_card } = req.body;
+
+        const payment = await Payment.findByIdAndUpdate(req.params.paymentId, {
+            title,
+            description
+            
+        },{ new: true });
+
+        payment.tasks =[];
+        await task.remove({ payment: payment._id })
+
+        await Promise.all(tasks.map(async task => {
+
+            const projectTask = new Task({ ...task, project: project._id });
+
+            await projectTask.save();
+            project.tasks.push(projectTask);
+
+
+        }));
+
+        await project.save();
+
+        return res.send({ project });
+
+    } catch (err) {
+        return res.status(400).send({ error: "Error updating project!" });
     }
 
 });
