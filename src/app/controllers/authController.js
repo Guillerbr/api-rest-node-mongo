@@ -68,7 +68,7 @@ router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
     try {
-        const user = await User.findOne({ email });               //procura user com email no db
+        const user = await User.findOne({ email });               //procura user com email no db,
 
         if (!user)
             return res.status(400).send({ error: 'User not found' });
@@ -92,14 +92,14 @@ router.post('/forgot_password', async (req, res) => {
             context: { token },
         }, (err) => {
             if (err)
-                
+
                 return res.status(400).send({ error: 'Cannot send forgot password email!' });
-                res.send({ ok: true, user: req.userId });     //ok return user id
+            res.send({ Successfully: true, user: req.userId });     //ok return user id,alter response sucess mensage
 
 
         })
     } catch (err) {
-                  
+
         res.status(400).send({ error: 'Error on recover password, try again!' });
     }
 
@@ -126,11 +126,8 @@ router.post('/reset_password', async (req, res) => {
 
         user.password = password;
 
-
         await user.save();
-
-       
-        res.send({ ok: true, user: req.userId });     //ok return user id
+        res.send({ Successfully: true, user: req.userId });     //ok return user id,alter response sucess mensage
 
 
     } catch (err) {
