@@ -18,4 +18,9 @@ nodemon src/index
 #Model-based framework and driver, a nodejs api system.
 
 
-#
+#API Functions
+
+-Email and password registration.
+-Email and password authentication.
+-Reset password by emailing link token
+-Make password change
