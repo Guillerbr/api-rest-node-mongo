@@ -15,9 +15,6 @@ node src/index
 or Nodemon module
 nodemon src/index
 
-#Model-based framework and driver, a nodejs api system.
-
-
 #API Functions
 
 -Email and password registration.
