@@ -62,8 +62,11 @@ router.put('/:paymentId', async (req, res) => {
         const { name_card, number_card, date_card, cvv_card } = req.body;
 
         const payment = await Payment.findByIdAndUpdate(req.params.paymentId, {
-            title,
-            description
+            name_card,
+            number_card,
+            date_card,
+            cvv_card,
+            
             
         },{ new: true });
 
