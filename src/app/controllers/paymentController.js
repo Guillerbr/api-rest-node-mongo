@@ -99,7 +99,8 @@ router.delete('/:paymentId', async (req, res) => {
 
     try {
         await Payment.findByIdAndRemove(req.params.paymentId);
-        return res.send();
+       // return res.send();
+        return res.status(200).send({ Ok: "Payment deleted sucessfull!" });
 
     } catch (err) {
         return res.status(400).send({
