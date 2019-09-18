@@ -94,11 +94,11 @@ router.put('/:paymentId', async (req, res) => {
 });
 
 
-/*
-router.delete()('/:paymentsId', async (req, res) => {
+
+router.delete('/:paymentId', async (req, res) => {
 
     try {
-        await Payment.findByIdAndRemove(req.params.paymenttId);
+        await Payment.findByIdAndRemove(req.params.paymentId);
         return res.send();
 
     } catch (err) {
@@ -114,7 +114,7 @@ router.delete()('/:paymentsId', async (req, res) => {
 
 
 
-*/
+
 
 
 module.exports = app => app.use('/auth', router);
