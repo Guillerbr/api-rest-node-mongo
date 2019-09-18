@@ -75,17 +75,17 @@ router.put('/:paymentId', async (req, res) => {
 
         await Promise.all(tasks.map(async task => {
 
-            const projectTask = new Task({ ...task, project: project._id });
+            const paymentTask = new Task({ ...task, payment: payment._id });
 
-            await projectTask.save();
-            project.tasks.push(projectTask);
+            await paymentTask.save();
+            payment.tasks.push(paymentTask);
 
 
         }));
 
-        await project.save();
+        await payment.save();
 
-        return res.send({ project });
+        return res.send({ payment });
 
     } catch (err) {
         return res.status(400).send({ error: "Error updating project!" });
