@@ -16,9 +16,10 @@ or Nodemon module
 nodemon src/index
 
 #Routes 
-/auth/register       ->register user email,password.
-/auth/authuser       -login user email and password.
-
+/auth/register            POST->register user email,password.
+/auth/authuser            POST->login user email and password.
+/auth/forgot_password     POST->
+/auth/reset_password      POST->
 
 
 
