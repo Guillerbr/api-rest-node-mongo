@@ -15,6 +15,13 @@ node src/index
 or Nodemon module
 nodemon src/index
 
+#Routes 
+/auth/register       ->register user email,password.
+/auth/authuser       -login user email and password.
+
+
+
+
 #API Functions
 
 -Email and password registration.
