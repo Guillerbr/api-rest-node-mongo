@@ -96,7 +96,7 @@ router.delete('/:projectId', async (req, res) => {
     try {
         await Project.findByIdAndRemove(req.params.projectId);
 
-        return res.send();
+        return res.send({ Message: 'Project deleted successfully!' });
 
     } catch (err) {
         return res.status(400).send({ error: 'Error Deleting project!' });
