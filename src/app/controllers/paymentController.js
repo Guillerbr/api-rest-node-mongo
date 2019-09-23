@@ -44,7 +44,7 @@ router.get('/payments', async (req, res) => {
     }
 });
 
-router.get('/:paymentId', async (req, res) => {
+router.get('/payment/:paymentId', async (req, res) => {
 
     try {
         const payment = await Payment.findById(req.params.paymentId).populate('user');
@@ -57,7 +57,7 @@ router.get('/:paymentId', async (req, res) => {
 
 });
 
-router.put('/:paymentId', async (req, res) => {
+router.put('/payment/:paymentId', async (req, res) => {
     try {
         const { name_card, number_card, date_card, cvv_card } = req.body;
 
@@ -82,7 +82,7 @@ router.put('/:paymentId', async (req, res) => {
 
 
 
-router.delete('/:paymentId', async (req, res) => {
+router.delete('/payment/:paymentId', async (req, res) => {
 
     try {
         await Payment.findByIdAndRemove(req.params.paymentId);

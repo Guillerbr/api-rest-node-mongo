@@ -17,14 +17,20 @@ nodemon src/index
 
 #Routes 
 
-/auth/                    Middleware authentication
+Middleware authentication
 /auth/register            POST->register user email,password.
 /auth/authuser            POST->login user email and password.
 /auth/forgot_password     POST->
 /auth/reset_password      POST->
 
-/auth/payments            POST->
-/auth/payments            GET->
+Payments
+/auth/payments                 POST->
+/auth/payments                 GET->
+auth/payment/:paymentId        GET->
+auth/payment/:paymentId        PUT->
+auth/payment/:paymentId        DELETE->
+
+
 
 
 
