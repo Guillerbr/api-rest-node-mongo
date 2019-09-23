@@ -14,7 +14,7 @@ router.post('/account', async (req, res) => {
     try {
         const { id_account, balance, deposits, shopping } = req.body;
 
-        const account = await Account.create({ id_account, balance, deposits, shopping, user: req.userId });
+        const account = await Account.create({ id_account, balance, deposits, shopping, user_id: req.userId });
         await account.save();
 
         return res.send({ account });
