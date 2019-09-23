@@ -28,14 +28,14 @@ Middleware authentication
 /auth/reset_password      POST->
 
 Payments
-/auth/payments                  POST->
+/auth/payments                  POST-> { name_card, number_card, date_card, cvv_card } = req.body;
 /auth/payments                  GET->
 /auth/payment/:paymentId        GET->
 /auth/payment/:paymentId        PUT->
 /auth/payment/:paymentId        DELETE->
 
 Projects
-projects/                      POST->
+projects/                      POST-> { title, description, tasks } = req.body;
 projects/                      GET->
 projects/:projectId            GET->
 projects/:projectId            PUT->
