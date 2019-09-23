@@ -7,9 +7,13 @@ See package.json file
 
 Use Mailtrap for tests server smtp and email.Config in config/mail.json credentials
 
+#Frist Fork?
+
+npm install
+
+
 #Start project Nodejs and Nodemon  
 
-Start
 node src/index
 
 or Nodemon module
@@ -30,7 +34,8 @@ Payments
 /auth/payment/:paymentId        PUT->
 /auth/payment/:paymentId        DELETE->
 
-
+Projects
+projects/                      POST->
 
 
 
