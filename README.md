@@ -24,11 +24,11 @@ Middleware authentication
 /auth/reset_password      POST->
 
 Payments
-/auth/payments                 POST->
-/auth/payments                 GET->
-auth/payment/:paymentId        GET->
-auth/payment/:paymentId        PUT->
-auth/payment/:paymentId        DELETE->
+/auth/payments                  POST->
+/auth/payments                  GET->
+/auth/payment/:paymentId        GET->
+/auth/payment/:paymentId        PUT->
+/auth/payment/:paymentId        DELETE->
 
 
 
