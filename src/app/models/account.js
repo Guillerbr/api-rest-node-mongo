@@ -2,7 +2,7 @@ const mongoose = require('../../database');
 
 const AccountSchema = new mongoose.Schema({
 
-    user: {
+    user_id: {
         type: mongoose.Schema.Types.ObjectId,     //referencia user id, comando moogoose
         ref: 'User',                             //relacionamento de tabelas
         require: true,
