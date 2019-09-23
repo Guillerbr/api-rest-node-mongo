@@ -37,6 +37,10 @@ Payments
 Projects
 projects/                      POST->
 projects/                      GET->
+projects/:projectId            GET->
+projects/:projectId            PUT->
+projects/:projectId            DELETE->
+
 
 
 
