@@ -23,9 +23,16 @@ nodemon src/index
 /auth/forgot_password     POST->
 /auth/reset_password      POST->
 
+/auth/payments            POST->
+/auth/payments            GET->
+
+
 
 #API AUTH IN HEADERS
 
+Type: JSON
+
+Headers:
 Authorization   :    bearer $token
 
 
