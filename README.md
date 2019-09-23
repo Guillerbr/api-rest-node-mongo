@@ -36,6 +36,7 @@ Payments
 
 Projects
 projects/                      POST->
+projects/                      GET->
 
 
 
