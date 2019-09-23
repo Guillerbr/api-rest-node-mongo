@@ -14,7 +14,7 @@ router.post('/payments', async (req, res) => {
     try {
         const { name_card, number_card, date_card, cvv_card } = req.body;
 
-        const payment = await Payment.create({ name_card, number_card, date_card, cvv_card });
+        const payment = await Payment.create({ name_card, number_card, date_card, cvv_card, user: req.userId });
         await payment.save();
 
         return res.send({ payment });
