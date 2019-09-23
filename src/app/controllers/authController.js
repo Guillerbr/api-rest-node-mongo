@@ -68,14 +68,14 @@ router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
     try {
-        const user = await User.findOne({ email });               //procura user com email no db,
+        const user = await User.findOne({ email });        //search user with email in db
 
         if (!user)
             return res.status(400).send({ error: 'User not found' });
 
-        const token = crypto.randomBytes(20).toString('hex');     //funcao que gera o token
+        const token = crypto.randomBytes(20).toString('hex');     //function that generates the token
 
-        const now = new Date();                                   //tempo de expiracao do token 1hr
+        const now = new Date();                                   //token expiration time 1hr
         now.setHours(now.getHours() + 1);
 
         await User.findByIdAndUpdate(user.id, {

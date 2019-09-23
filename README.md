@@ -16,10 +16,17 @@ or Nodemon module
 nodemon src/index
 
 #Routes 
+
+/auth/                    Middleware authentication
 /auth/register            POST->register user email,password.
 /auth/authuser            POST->login user email and password.
 /auth/forgot_password     POST->
 /auth/reset_password      POST->
+
+
+#API AUTH IN HEADERS
+
+Authorization   :    bearer $token
 
 
 
