@@ -8,11 +8,6 @@ const AccountSchema = new mongoose.Schema({
         require: true,
 
     },
-    id_account: {
-        type: Number,
-        required: true
-        //select: false,
-    },
     balance: {
         type: Number,
         required: true
