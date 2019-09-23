@@ -27,3 +27,6 @@ router.post('/account', async (req, res) => {
 
     }
 });
+
+
+module.exports = app => app.use('/', router);
