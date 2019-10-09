@@ -4,7 +4,7 @@ const AccountSchema = new mongoose.Schema({
 
     user_id: {
         type: mongoose.Schema.Types.ObjectId,     //referencia user id, comando moogoose
-        ref: 'User',                             //relacionamento de tabelas
+        ref: 'User',                              //relacionamento de tabelas
         require: true,
 
     },
@@ -30,10 +30,6 @@ const AccountSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-
-
-
-
 
 
 });

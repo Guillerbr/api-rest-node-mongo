@@ -42,7 +42,7 @@ projects/:projectId            PUT->
 projects/:projectId            DELETE->
 
 Account
-/account                      POST->
+/account                      POST-> { balance, deposits, shopping } = req.body;
 
 
 
