@@ -22,10 +22,10 @@ nodemon src/index
 #Routes 
 
 Middleware authentication
-/auth/register            POST->register user email,password.
-/auth/authuser            POST->login user email and password.
-/auth/forgot_password     POST->
-/auth/reset_password      POST->
+/auth/register                  POST->register user email,password.
+/auth/authuser                  POST->login user email and password.
+/auth/forgot_password           POST->
+/auth/reset_password            POST->
 
 Payments
 /auth/payments                  POST-> { name_card, number_card, date_card, cvv_card } = req.body;
@@ -35,14 +35,14 @@ Payments
 /auth/payment/:paymentId        DELETE->
 
 Projects
-projects/                      POST-> { title, description, tasks } = req.body;
-projects/                      GET->
-projects/:projectId            GET->
-projects/:projectId            PUT->
-projects/:projectId            DELETE->
+projects/                       POST-> { title, description, tasks } = req.body;
+projects/                       GET->
+projects/:projectId             GET->
+projects/:projectId             PUT->
+projects/:projectId             DELETE->
 
 Account
-/account                      POST-> { balance, deposits, shopping } = req.body;
+/account                        POST-> { balance, deposits, shopping } = req.body;
 
 
 
